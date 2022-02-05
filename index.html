@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="products"></div>
+
+    <script>
+        const produtos = [
+         {
+             titulo: 'Poster',
+             foto: 'https://i.pinimg.com/736x/6f/1e/fb/6f1efb3e2f7ddb6f6b9a3dbefabe0c67.jpg',
+             desc: 'Um poster de um desenho que eu infelizmente esqueci o nome...'
+         },
+         {
+             titulo: 'Caixas',
+             foto: 'https://neilpatel.com/wp-content/uploads/2019/07/mini-caixas-de-produtos-em-cima-de-laptop.jpeg',
+             desc: 'Caixas de papelão para vocês usar.'
+         }
+           
+        ]
+
+        function createCard(titulo, foto, desc){
+            const products = document.getElementById('products');
+            const div = document.createElement('div');
+            const img = document.createElement('img');
+            const p = document.createElement('p');
+            const button = document.createElement('button');
+            const span = document.createElement('span');
+
+            div.classList.add('card');
+
+            img.src = foto;
+
+            p.innerText = desc;
+
+            // document.body.append(div);
+            products.appendChild(div);
+
+            button.innerHTML = "comprar";
+
+            span.innerHTML = titulo;
+
+            div.appendChild(img);
+            div.appendChild(span);
+            div.appendChild(p);
+            div.appendChild(button);
+        }
+
+        produtos.map((item) => {
+            createCard(item.titulo, item.foto, item.desc);
+        })
+    </script>
+</body>
+</html>
